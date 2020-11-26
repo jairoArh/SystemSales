@@ -1,5 +1,7 @@
 package logic;
 
+import exceptions.ExceptionBillNotExists;
+import exceptions.ExpcetionProductNotExists;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -27,7 +29,7 @@ class ServiceSalesTest {
     }
 
     @Test
-    public void testAddDetailSale(){
+    public void testAddDetailSale() throws ExceptionBillNotExists, ExpcetionProductNotExists {
         setupTwo();
         assertTrue( sales.addDetailSale( "7632","prd101",(short)5 ) );
         assertFalse( sales.addDetailSale( "7632","prd1601",(short)5 ) );
@@ -38,7 +40,7 @@ class ServiceSalesTest {
     }
 
     @Test
-    public void testGetTotal(){
+    public void testGetTotal() throws ExceptionBillNotExists, ExpcetionProductNotExists {
         setupTwo();
         assertTrue( sales.addDetailSale( "7632","prd101",(short)5 ) );
         assertTrue( sales.addDetailSale( "7632","prd201",(short)5 ) );

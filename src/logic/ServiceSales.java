@@ -1,5 +1,8 @@
 package logic;
 
+import exceptions.ExceptionBillNotExists;
+import exceptions.ExpcetionProductNotExists;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -49,16 +52,18 @@ public class ServiceSales {
         return false;
     }
 
-    public boolean addDetailSale( String number, String idProduct, short cant ){
+    public boolean addDetailSale( String number, String idProduct, short cant ) throws ExceptionBillNotExists, ExpcetionProductNotExists {
         Bill bill = findBill( number );
         if (  bill != null ){
             Product product = findProduct( idProduct );
             if( product != null ){
                 return bill.addDetail( product, cant );
+            }else{
+                throw new ExpcetionProductNotExists("Producto Inexistente");
             }
+        }else{
+            throw new ExceptionBillNotExists("Factura Inexitente");
         }
-
-        return false;
     }
 
     public double getValueTotalSales(){
