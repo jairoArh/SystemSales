@@ -3,17 +3,10 @@ package test;
 import exceptions.ExceptionBillNotExists;
 import exceptions.ExpcetionProductNotExists;
 import logic.ETypeProduct;
-import logic.Product;
 import logic.ServiceSales;
-import sun.misc.Cleaner;
-
 import javax.swing.*;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class Runner {
     ServiceSales sales;
